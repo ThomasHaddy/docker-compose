@@ -1,0 +1,14 @@
+---
+version: '3'
+services:
+    jellyseerr:
+       image: fallenbagel/jellyseerr:latest
+       container_name: jellyseerr
+       environment:
+            - LOG_LEVEL=debug
+            - TZ=${TZ:-UTC}
+       ports:
+            - ${WEB_UI}:5055
+       volumes:
+            - ${CONFIG}:/app/config
+       restart: unless-stopped
