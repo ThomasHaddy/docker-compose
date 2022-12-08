@@ -24,7 +24,7 @@ services:
         - PEERPORT=${TORRENT_PORT} #optional
       volumes:
         - ${TRANSMISSION_BASE}/config:/config
-        - ${TRANSMISSION_BASE}/downloads:/downloads
+        - ${TRANSMISSION_BASE}/data:/data
         - ${TRANSMISSION_BASE}/watch:/watch
       logging:
         driver: json-file
