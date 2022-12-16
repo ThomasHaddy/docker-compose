@@ -6,14 +6,15 @@ services:
     image: itzg/minecraft-server
     volumes:
       - minecraftdata:/data
-      - ${MC_PLUGINS_DIR}:/plugins
-      - ${MC_MODS_DIR}/home/thaddy/docker/containers/minecraft/mc-vanilla/mods:/mods
+      - ${MC_DIR}/plugins:/plugins
+      - ${MC_DIR}/mods:/mods
     ports:
       - ${MC_PORT}:25565
     environment:
       EULA: "TRUE"
       TYPE: "BUKKIT"
       OPS: ${OP_USER}
+      MEMORY: "8G"
       ENABLE_WHITELIST: "TRUE"
       ENFORCE_WHITELIST: "TRUE"
     tty: true
