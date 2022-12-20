@@ -6,6 +6,7 @@ services:
     container_name: uptime-kuma
     volumes:
       - ${KUMA}:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - ${WEB_UI}:3001
     restart: unless-stopped

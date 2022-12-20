@@ -25,7 +25,6 @@ services:
       volumes:
         - ${TRANSMISSION_BASE}/config:/config
         - ${TRANSMISSION_BASE}/data:/data
-        - ${TRANSMISSION_BASE}/watch:/watch
       logging:
         driver: json-file
         options:
