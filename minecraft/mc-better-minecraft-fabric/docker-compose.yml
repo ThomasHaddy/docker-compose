@@ -46,7 +46,7 @@ services:
 # Specify external port.                                           #
 ####################################################################
     ports:
-      - 25565:25565
+      - ${MC_PORT}:${MC_PORT}
 
 ####################################################################
 #                   Automatic Server Restart                       #
@@ -77,7 +77,7 @@ services:
 # update the volume name at the bottom of this config.             #
 ####################################################################
     volumes:
-      - /home/thaddy/docker/containers/minecraft/mc-better-minecraft-fabric/modpacks:/modpacks:ro
+      - ${MC_DIR}/modpacks:/modpacks:ro
       - minecraft_better_minecraft_fabric_data:/data
 
 ####################################################################
@@ -103,7 +103,8 @@ services:
 # same directory you place this docker-compose file.               #
 ####################################################################
       TYPE: CURSEFORGE
-      CF_SERVER_MOD: /modpacks/Better+MC+Server+Pack+FABRIC+1.19.2+v10.zip
+      CF_SERVER_MOD: /modpacks/Better+MC+FABRIC+Server+Pack+1.19.2+v12.5.zip
+      CF_BASE_DIR: /data
 
 ####################################################################
 #                          Server Memory                           #
@@ -133,16 +134,15 @@ services:
 # be found on the readme.md page on github.                        #
 ####################################################################
       OVERRIDE_SERVER_PROPERTIES: "true"
-      DIFFICULTY: "easy"
+      DIFFICULTY: "normal"
       MAX_TICK_TIME: "-1"
-      VIEW_DISTANCE: "6"
       ALLOW_FLIGHT: "true"
-      OPS: "Feels_BHadd_Man"
+      OPS: ${OP_USER}
       VIEW_DISTANCE: 10
       MAX_PLAYERS: 10
       PVP: "false"
       LEVEL_TYPE: "biomesoplenty"
-      MOTD: "Better MC [FABRIC] 1.19.2 v10"
+      MOTD: "Better MC [FABRIC] 1.19.2 v12.5"
 
     tty: true
     stdin_open: true
