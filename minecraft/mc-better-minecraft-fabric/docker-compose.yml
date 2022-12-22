@@ -3,9 +3,9 @@ version: "3"
 ####################################################################
 #                 CURSEFORGE_GENERIC_MODPACK                       #
 #                                                                  #
-# Date: 20221110                                                   #
+# Date: 2022-12-21                                                 #
 #                                                                  #
-# Mod: Better Minecraft Plus FABRIC v10                            #
+# Mod: Better Minecraft Plus FABRIC v12.5                          #
 #                                                                  #
 # Game Version: 1.19.2                                             #
 #                                                                  #
@@ -24,7 +24,7 @@ services:
 #                                                                  #
 # Example: 'name:' or 'mc_atm6:'                                   #
 ####################################################################
-  mc_bmp:
+  mc_bmc:
 
 ####################################################################
 #                      Image & Container Name                      #
@@ -38,7 +38,7 @@ services:
 # that will show when you run 'docker ps' commands.                #
 ####################################################################
     image: itzg/minecraft-server
-    container_name: mc_bmp
+    container_name: mc_bmc
 
 ####################################################################
 #                         Server Ports                             #
@@ -89,6 +89,22 @@ services:
       EULA: "TRUE"
 
 ####################################################################
+#                       CONTAINER USER                             #
+#                                                                  #
+# Sets the default user to run the container                       #
+# (Not ideal, but it seems the docker's root must run it)          #
+####################################################################
+      UID: 0
+      GID: 0
+
+####################################################################
+#                       MINECRAFT VERSION                          #
+#                                                                  #
+# Sets the Minecraft version the modpack should be built against   #
+####################################################################
+      VERSION: 1.19.2
+
+####################################################################
 #                    CURSEFORGE MODPACK INSTALL                    #
 #                                                                  #
 # Sets install type to CURSEFORGE and specifys the zip folder name #
@@ -98,6 +114,9 @@ services:
 #                                                                  #
 # CF_SERVER_MOD: Defines where the CURSEFORGE server modpack.zip   #
 #                is located                                        #
+#                                                                  #
+# CF_BASE_DIR: The base directory for where the server instance    #
+#              is located                                          #
 #                                                                  #
 # Place your mod zip file in a folder called 'modpacks' in the     #
 # same directory you place this docker-compose file.               #
