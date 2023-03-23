@@ -17,6 +17,7 @@ services:
       MEMORY: "8G"
       ENABLE_WHITELIST: "TRUE"
       ENFORCE_WHITELIST: "TRUE"
+      DATAPACKS: https://www.stardustlabs.net/s/Terralith_1194_v237.zip
     tty: true
     stdin_open: true
     restart: unless-stopped
