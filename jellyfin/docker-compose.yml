@@ -14,6 +14,7 @@ services:
       - ${CACHE_DIR}:/cache
       - ${SHOWS_DIR}:/data/tvshows
       - ${MOVIES_DIR}:/data/movies
+      - ${MUSIC_DIR}:/data/music
     ports:
       - ${JELLY_PORT}:8096
       - ${JELLY_UDP_PORT}:7359/udp

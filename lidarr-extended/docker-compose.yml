@@ -1,0 +1,44 @@
+version: "2.1"
+services:
+  lidarr-extended:
+    image: randomninjaatk/lidarr-extended:latest
+    container_name: lidarr-extended
+    volumes:
+      - ${CONFIG_DIR}:/config
+      - ${DOWNLOADS}:/downloads-lidarr-extended
+      - ${MUSIC_DIR}:/music
+      - ${MUSIC_VIDEOS_DIR}:/music-videos
+    environment:
+      - TZ=${TZ:-UTC}
+      - PUID=1000
+      - PGID=1000
+      - enableAudioScript=true
+      - enableVideoScript=true
+      - scriptInterval=15m
+      - configureLidarrWithOptimalSettings=true
+      - searchSort=date
+      - audioFormat=native
+      - audioBitrate=lossless
+      - requireQuality=true
+      - enableReplaygainTags=true
+      - audioLyricType=both
+      - dlClientSource=both
+      - arlToken=${ARL_TOKEN}
+      - tidalCountryCode=US
+      - addDeezerTopArtists=true
+      - addDeezerTopAlbumArtists=true
+      - addDeezerTopTrackArtists=true
+      - topLimit=10
+      - addRelatedArtists=false
+      - numberOfRelatedArtistsToAddPerArtist=5
+      - lidarrSearchForMissing=true
+      - addFeaturedVideoArtists=false
+      - youtubeSubtitleLanguage=en
+      - enableQueueCleaner=true
+      - matchDistance=5
+      - enableBeetsTagging=true
+      - beetsMatchPercentage=90
+      - retryNotFound=90
+    ports:
+      - 8686:8686
+    restart: unless-stopped
