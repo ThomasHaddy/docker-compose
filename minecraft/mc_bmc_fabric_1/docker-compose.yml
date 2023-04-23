@@ -24,7 +24,7 @@ services:
 #                                                                  #
 # Example: 'name:' or 'mc_atm6:'                                   #
 ####################################################################
-  mc_bmc:
+  mc_bmc_fabric_1:
 
 ####################################################################
 #                      Image & Container Name                      #
@@ -38,7 +38,7 @@ services:
 # that will show when you run 'docker ps' commands.                #
 ####################################################################
     image: itzg/minecraft-server
-    container_name: mc_bmc
+    container_name: mc_bmc_fabric_1
 
 ####################################################################
 #                         Server Ports                             #
@@ -46,7 +46,7 @@ services:
 # Specify external port.                                           #
 ####################################################################
     ports:
-      - ${MC_PORT}:${MC_PORT}
+      - ${MC_HOST_PORT}:${MC_DOCKER_PORT}
 
 ####################################################################
 #                   Automatic Server Restart                       #
@@ -77,7 +77,6 @@ services:
 # update the volume name at the bottom of this config.             #
 ####################################################################
     volumes:
-      - ${MC_DIR}/modpacks:/modpacks:ro
       - minecraft_better_minecraft_fabric_data:/data
 
 ####################################################################
@@ -121,9 +120,10 @@ services:
 # Place your mod zip file in a folder called 'modpacks' in the     #
 # same directory you place this docker-compose file.               #
 ####################################################################
-      TYPE: CURSEFORGE
-      CF_SERVER_MOD: /modpacks/Better+MC+FABRIC+Server+Pack+1.19.2+v12.5.zip
-      CF_BASE_DIR: /data
+      TYPE: AUTO_CURSEFORGE
+      CF_SERVER_MOD: ${BETTER_MC_FABRIC_ZIP}
+      CF_PAGE_URL: https://www.curseforge.com/minecraft/modpacks/better-mc-fabric
+      CF_API_KEY: ${CF_API_KEY}
 
 ####################################################################
 #                          Server Memory                           #
@@ -161,7 +161,7 @@ services:
       MAX_PLAYERS: 10
       PVP: "false"
       LEVEL_TYPE: "biomesoplenty"
-      MOTD: "Better MC [FABRIC] 1.19.2 v12.5"
+      MOTD: "Better MC [FABRIC] 1.19.2 v17.5"
 
     tty: true
     stdin_open: true

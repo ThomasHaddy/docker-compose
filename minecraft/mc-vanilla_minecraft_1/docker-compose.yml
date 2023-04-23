@@ -1,0 +1,144 @@
+---
+version: "3"
+
+####################################################################
+#                   MINECRAFT VANILLA SERVER                       #
+####################################################################
+services:
+
+####################################################################
+#                         Service Name                             #
+#                                                                  #
+# Define Service Name here. If using RCON this name will be        #
+# referenced again as RWA_RCON_HOST below.                         #
+#                                                                  #
+# Example: 'name:' or 'mc_atm6:'                                   #
+####################################################################
+  mc-vanilla_minecraft_1:
+
+####################################################################
+#                      Image & Container Name                      #
+#                                                                  #
+# Specify Image Name and Java Version. The 'image' will always be  #
+# 'itzg/minecraft-server' however the tag added to the end is      #
+# where you can specify the java version or container architecture.#
+# See readme.md for a full list.                                   #
+#                                                                  #
+# 'container_name:' This can be anything you like. This is the name#
+# that will show when you run 'docker ps' commands.                #
+####################################################################
+    image: itzg/minecraft-server
+    container_name: mc-vanilla_minecraft_1
+
+####################################################################
+#                         Server Ports                             #
+#                                                                  #
+# Specify external port.                                           #
+####################################################################
+    ports:
+      - ${MC_PORT_HOST}:${MC_PORT_DOCKER}
+
+####################################################################
+#                   Automatic Server Restart                       #
+#                                                                  #
+# Define a restart policy here.                                    #
+#    - 'no' = Do not restart.                                      #
+#    - 'on-failure' = Restart if container exits because an error. #
+#    - 'always' = Regardless of stop reason.                       #
+#    - 'unless-stopped' = Similar to always except if stopped.     #
+####################################################################
+    restart: unless-stopped
+
+####################################################################
+#                     Volume and Folder Access                     #
+#                                                                  #
+# This section defines what folders and volumes you want to give   #
+# this container access to. It is recommended to leaves these set  #
+# to the default values unless you know what you are doing.        #
+####################################################################
+    volumes:
+      - minecraftdata:/data
+
+####################################################################
+#                             EULA                                 #
+#                                                                  #
+# Accept EULA by setting to "true"                                 #
+####################################################################
+    environment:
+      EULA: "TRUE"
+
+####################################################################
+#                       CONTAINER USER                             #
+#                                                                  #
+# Sets the default user to run the container                       #
+# (Not ideal, but it seems the docker's root must run it)          #
+####################################################################
+      UID: 0
+      GID: 0
+
+####################################################################
+#                       MINECRAFT VERSION                          #
+#                                                                  #
+# Sets the Minecraft version                                       #
+####################################################################
+      VERSION: ${MC_VER}
+
+####################################################################
+#                           SERVER TYPE                            #
+####################################################################
+      TYPE: ${MC_TYPE}
+
+####################################################################
+#                           DATAPACKS                              #
+#                                                                  #
+# Add URIs to the datapacks you would like to use                  #
+####################################################################
+      DATAPACKS: ${DATAPACK_URI}
+
+####################################################################
+#                          Server Memory                           #
+#                                                                  #
+# Set Maximum amount of memory allowed for your server.            #
+####################################################################
+      MEMORY: "8G"
+
+####################################################################
+#                         Logging Options                          #
+#                                                                  #
+# Set to "true" to delete old logs                                 #
+####################################################################
+      ENABLE_ROLLING_LOGS: "true"
+
+####################################################################
+#                          Server Timezone                         #
+#                                                                  #
+# Specify server Timezone                                          #
+####################################################################
+      TZ: ${TZ:-UTC}
+
+####################################################################
+#                       Minecraft Game Options                     #
+#                                                                  #
+# List any game options you want to define here.                   #
+####################################################################
+      OVERRIDE_SERVER_PROPERTIES: "true"
+      DIFFICULTY: "normal"
+      MAX_TICK_TIME: "-1"
+      ALLOW_FLIGHT: "true"
+      OPS: ${OP_USER}
+      VIEW_DISTANCE: 10
+      MAX_PLAYERS: 10
+      SEED: 
+      MOTD: "Welcome to Thomas's Vanilla MC Server!"
+
+    tty: true
+    stdin_open: true
+####################################################################
+#                            Volumes                               #
+#                                                                  #
+# Define data volume name here. This will be where the world lives #
+# and what will be backed up.                                      #
+####################################################################
+volumes:
+  minecraftdata:
+    external: true
