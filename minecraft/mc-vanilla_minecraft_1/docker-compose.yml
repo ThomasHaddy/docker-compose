@@ -123,6 +123,7 @@ services:
 ####################################################################
       OVERRIDE_SERVER_PROPERTIES: "true"
       DIFFICULTY: "normal"
+      ENFORCE_WHITELIST: "true"
       MAX_TICK_TIME: "-1"
       ALLOW_FLIGHT: "true"
       OPS: ${OP_USER}
