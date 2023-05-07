@@ -71,10 +71,9 @@ services:
 #                       CONTAINER USER                             #
 #                                                                  #
 # Sets the default user to run the container                       #
-# (Not ideal, but it seems the docker's root must run it)          #
 ####################################################################
-      UID: 0
-      GID: 0
+      PUID: 1000
+      PGID: 1000
 
 ####################################################################
 #                       MINECRAFT VERSION                          #
@@ -87,11 +86,6 @@ services:
 #                           SERVER TYPE                            #
 ####################################################################
       TYPE: "PAPER"
-
-####################################################################
-#                             PLUGINS                              #
-####################################################################
-      SPIGET_RESOURCES: ${SPIGET_IDS}
 
 ####################################################################
 #                           DATAPACKS                              #
@@ -128,6 +122,7 @@ services:
 ####################################################################
       OVERRIDE_SERVER_PROPERTIES: "true"
       DIFFICULTY: "normal"
+      ENABLE_WHITELIST: "true"
       ENFORCE_WHITELIST: "true"
       MAX_TICK_TIME: "-1"
       ALLOW_FLIGHT: "true"
