@@ -13,7 +13,9 @@ services:
       - ${CONFIG_DIR}:/config
       - ${CACHE_DIR}:/cache
       - ${SHOWS_DIR}:/data/tvshows
+      - ${SHOWS_DIR_4K}:/data/tvshows-4k
       - ${MOVIES_DIR}:/data/movies
+      - ${MOVIES_DIR_4K}:/data/movies-4k
       - ${MUSIC_DIR}:/data/music
     ports:
       - ${JELLY_PORT}:8096
