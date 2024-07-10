@@ -88,6 +88,14 @@ services:
          TYPE: "PAPER"
 
 ####################################################################
+#                           MODPACK                                #
+####################################################################
+         MOD_PLATFORM: MODRINTH
+         MODRINTH_LOADER: "fabric"
+         MODRINTH_DOWNLOAD_DEPENDENCIES: required
+         MODRINTH_MODPACK: sop
+
+####################################################################
 #                           DATAPACKS                              #
 #                                                                  #
 # Add URIs to the datapacks you would like to use                  #
@@ -98,16 +106,17 @@ services:
             https://cdn.modrinth.com/data/3L2L6sWL/versions/vmMShagY/terratonic-datapack-v3.1.2.zip
             https://www.stardustlabs.net/s/Terralith_120_v251.zip
             https://cdn.modrinth.com/data/hl5OLM95/versions/WCyhs86R/Geophilic%20v2.4.1%20f15-48.zip
+            https://cdn.modrinth.com/data/EEIwvQVo/versions/kyK3ZfPm/tidal.zip
             https://cdn.modrinth.com/data/tpehi7ww/versions/cpJzZfzm/Dungeons%20and%20Taverns%20v3.1.1.zip
             https://cdn.modrinth.com/data/rYocd2LE/versions/KDwtYgdJ/DnT%20Stronghold%20Rework%20v1.1.2.zip
-            https://cdn.modrinth.com/data/BuWCQzqf/versions/AriVZ4Yz/HopoBetterUnderwaterRuins-%5B1.20.2-1.20.4%5D-1.1.6.jar
-            https://cdn.modrinth.com/data/hIpLSyga/versions/4Ui7MIgI/HopoBetterRuinedPortals-%5B1.20.2-1.20.4%5D-1.4.0.jar
-            https://cdn.modrinth.com/data/9IxCUYAP/versions/RvAVx92z/HopoBetterMineshaft-%5B1.20.2-1.20.4%5D-1.2.2b.jar
-            https://cdn.modrinth.com/data/fgmhI8kH/versions/IA9IQPz7/%5BFabric%5DCTOV-v.3.4.4.jar
+            https://cdn.modrinth.com/data/BuWCQzqf/versions/AriVZ4Yz/%5BDatapackVer.%5DHopoBetterUnderwaterRuins-%5B1.20.2-1.20.4%5D-1.1.6.zip
+            https://cdn.modrinth.com/data/hIpLSyga/versions/4Ui7MIgI/%5BDatapack%20Ver.%5DHopoBetterRuinedPortals-%5B1.20.2-1.20.4%5D-1.4.0.zip
+            https://cdn.modrinth.com/data/9IxCUYAP/versions/RvAVx92z/%5BDatapackVer.%5DHopoBetterMineshaft-%5B1.20.2-1.20.4%5D-1.2.2b.zip
             https://cdn.modrinth.com/data/HSfsxuTo/versions/6l2WsrQZ/Explorify%20v1.5.0%20f10-48.zip
             https://www.stardustlabs.net/s/Structory_120_v135.zip
             https://www.stardustlabs.net/s/Structory_Towers_120_v107.zip
             https://www.stardustlabs.net/s/Nullscape_120_v126.zip
+            https://cdn.modrinth.com/data/XCIMrYn0/versions/nLL1UqGv/Hearths%20v1.0.1%20f12-48.zip
             https://cdn.modrinth.com/data/zrzYrlm0/versions/aGw3yWky/spawnanimations-v1.9.4-mc1.17x-1.20x-datapack.zip
             https://cdn.modrinth.com/data/VHSdL301/versions/PmdpULTr/KeepSomeInventory-v1.3.3.zip
             https://cdn.modrinth.com/data/UKUcgltR/versions/krwKHtoE/PK_Waystones_V3.2.5_MC_1.20.3_to_1.20.4.zip
@@ -128,7 +137,7 @@ services:
 #                                                                  #
 # Set Maximum amount of memory allowed for your server.            #
 ####################################################################
-         MEMORY: "8G"
+         MEMORY: "12G"
 
 ####################################################################
 #                         Logging Options                          #
@@ -150,16 +159,18 @@ services:
 # List any game options you want to define here.                   #
 ####################################################################
          OVERRIDE_SERVER_PROPERTIES: "true"
+         ALLOW_FLIGHT: "true"
          DIFFICULTY: "normal"
          ENABLE_WHITELIST: "true"
          ENFORCE_WHITELIST: "true"
-         MAX_TICK_TIME: "-1"
-         ALLOW_FLIGHT: "true"
-         OPS: ${OP_USER}
-         VIEW_DISTANCE: 12
+         ICON: https://cdn.modrinth.com/data/uCdwusMi/icon.png
          MAX_PLAYERS: 10
-         SEED: ${SEED}
+         MAX_TICK_TIME: "-1"
+         OPS: ${OP_USER}
          MOTD: ${MOTD}
+         SEED: ${SEED}
+         VIEW_DISTANCE: 10
+         SIMULATION_DISTANCE: 8
 
       tty: true
       stdin_open: true
