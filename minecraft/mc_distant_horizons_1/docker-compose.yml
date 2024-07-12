@@ -92,8 +92,24 @@ services:
 ####################################################################
          MOD_PLATFORM: MODRINTH
          MODRINTH_LOADER: "fabric"
-         MODRINTH_DOWNLOAD_DEPENDENCIES: required
+         MODRINTH_DOWNLOAD_DEPENDENCIES: "required"
          MODRINTH_MODPACK: sop
+
+####################################################################
+#                           MODS                                   #
+####################################################################
+         MODRINTH_PROJECTS: |
+            ct-overhaul-village
+            towns-and-towers
+            yungs-better-jungle-temples
+            yungs-better-ocean-monuments
+            yungs-better-desert-temples
+            yungs-better-dungeons
+            yungs-better-nether-fortresses
+            yungs-better-end-island
+            xaeros-world-map
+            xaeros-minimap
+            worldedit
 
 ####################################################################
 #                           DATAPACKS                              #
@@ -102,11 +118,11 @@ services:
 # For Terralith, you can go here to get the URI:
 # https://www.stardustlabs.net/version-library
 ####################################################################
+         REMOVE_OLD_DATAPACKS: "true"
          DATAPACKS: |
             https://cdn.modrinth.com/data/3L2L6sWL/versions/vmMShagY/terratonic-datapack-v3.1.2.zip
             https://www.stardustlabs.net/s/Terralith_120_v251.zip
             https://cdn.modrinth.com/data/hl5OLM95/versions/WCyhs86R/Geophilic%20v2.4.1%20f15-48.zip
-            https://cdn.modrinth.com/data/EEIwvQVo/versions/kyK3ZfPm/tidal.zip
             https://cdn.modrinth.com/data/tpehi7ww/versions/cpJzZfzm/Dungeons%20and%20Taverns%20v3.1.1.zip
             https://cdn.modrinth.com/data/rYocd2LE/versions/KDwtYgdJ/DnT%20Stronghold%20Rework%20v1.1.2.zip
             https://cdn.modrinth.com/data/BuWCQzqf/versions/AriVZ4Yz/%5BDatapackVer.%5DHopoBetterUnderwaterRuins-%5B1.20.2-1.20.4%5D-1.1.6.zip
@@ -170,7 +186,7 @@ services:
          MOTD: ${MOTD}
          SEED: ${SEED}
          VIEW_DISTANCE: 10
-         SIMULATION_DISTANCE: 8
+         SIMULATION_DISTANCE: 6
 
       tty: true
       stdin_open: true
