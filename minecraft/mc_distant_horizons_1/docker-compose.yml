@@ -110,6 +110,8 @@ services:
             xaeros-world-map
             xaeros-minimap
             better-stats
+            explorers-compass
+            natures-compass
             worldedit
 
 ####################################################################
