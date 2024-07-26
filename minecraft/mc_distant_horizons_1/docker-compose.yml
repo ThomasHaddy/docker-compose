@@ -98,6 +98,7 @@ services:
 ####################################################################
 #                           MODS                                   #
 ####################################################################
+         REMOVE_OLD_MODS: "true"
          MODRINTH_PROJECTS: |
             ct-overhaul-village
             towns-and-towers
