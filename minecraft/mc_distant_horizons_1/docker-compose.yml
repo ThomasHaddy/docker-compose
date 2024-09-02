@@ -1,6 +1,4 @@
 ---
-version: "3"
-
 ####################################################################
 #                   MINECRAFT VANILLA SERVER                       #
 ####################################################################
@@ -89,6 +87,9 @@ services:
 
 ####################################################################
 #                           MODPACK                                #
+#                                                                  #
+# Add a "slug" to the modpack you would like to use:               #
+# - Simply Optimized
 ####################################################################
          MOD_PLATFORM: MODRINTH
          MODRINTH_LOADER: "fabric"
@@ -97,28 +98,57 @@ services:
 
 ####################################################################
 #                           MODS                                   #
+#                                                                  #
+# Add "slugs" to the mods you would like to use:                   #
 ####################################################################
-         REMOVE_OLD_MODS: "true"
          MODRINTH_PROJECTS: |
+            anvil-restoration
+            better-stats
+            better-than-mending
             ct-overhaul-village
+            deepslatecutting
+            highspeed-rail
+            inventory-sorting
+            leaves-be-gone
+            mine-spawners
+            netherportalfix
+            serversleep
+            stackables
             towns-and-towers
+            true-ending
+            worldedit
+            xaeros-world-map
+            xaeros-minimap
             yungs-better-jungle-temples
             yungs-better-ocean-monuments
             yungs-better-desert-temples
             yungs-better-dungeons
             yungs-better-nether-fortresses
             yungs-better-end-island
-            xaeros-world-map
-            xaeros-minimap
-            better-stats
-            worldedit
 
 ####################################################################
 #                           DATAPACKS                              #
 #                                                                  #
-# Add URIs to the datapacks you would like to use                  #
-# For Terralith, you can go here to get the URI:
-# https://www.stardustlabs.net/version-library
+# Add URIs to the datapacks you would like to use:                 #
+# - Blaze and Cave's Advancements                                  #
+# - Dungeons and Taverns                                           #
+# - Dungeons and Taverns Stronghold Rework                         #
+# - Explorify                                                      #
+# - Geophilic                                                      #
+# - Hearths                                                        #
+# - Hopo Better Underwater Ruins                                   #
+# - Hopo Better Ruined Portals                                     #
+# - Hopo Better Mineshaft                                          #
+# - Keep Some Inventory                                            #
+# - Nullscape                                                      #
+# - Spawn Animations                                               #
+# - Structory                                                      #
+# - Structory Towers                                               #
+# - Terralith                                                      #
+# - Terratonic                                                     #
+# - Waystones V3                                                   #
+#                                                                  #
+# Note: The order below matters:                                   #
 ####################################################################
          REMOVE_OLD_DATAPACKS: "true"
          DATAPACKS: |
@@ -143,9 +173,7 @@ services:
 ####################################################################
 #                           RESOURCEPACKS                          #
 #                                                                  #
-# Add URIs to the datapacks you would like to use                  #
-# For Terralith, you can go here to get the URI:
-# https://www.stardustlabs.net/version-library
+# Add URIs to the resourcepack you would like to use               #
 ####################################################################
          RESOURCE_PACK: https://cdn.modrinth.com/data/1D9ModDm/versions/YykUHKTE/Waystones_RP_V2.7.zip
          RESOURCE_PACK_SHA1: dc4b9721546b7aec99e5562b8bb2a0bc5b7053c6
@@ -190,6 +218,9 @@ services:
          VIEW_DISTANCE: 10
          SIMULATION_DISTANCE: 6
 
+####################################################################
+#                       Misc Options                               #
+####################################################################
       tty: true
       stdin_open: true
 ####################################################################
