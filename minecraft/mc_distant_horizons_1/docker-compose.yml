@@ -119,12 +119,13 @@ services:
             worldedit
             xaeros-world-map
             xaeros-minimap
-            yungs-better-jungle-temples
-            yungs-better-ocean-monuments
             yungs-better-desert-temples
             yungs-better-dungeons
-            yungs-better-nether-fortresses
             yungs-better-end-island
+            yungs-better-jungle-temples
+            yungs-better-nether-fortresses
+            yungs-better-ocean-monuments
+            yungs-better-witch-huts
 
 ####################################################################
 #                           DATAPACKS                              #
@@ -215,7 +216,7 @@ services:
          OPS: ${OP_USER}
          MOTD: ${MOTD}
          SEED: ${SEED}
-         VIEW_DISTANCE: 10
+         VIEW_DISTANCE: 12
          SIMULATION_DISTANCE: 6
 
 ####################################################################
