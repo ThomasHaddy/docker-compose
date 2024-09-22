@@ -105,15 +105,26 @@ services:
             anvil-restoration
             better-stats
             better-than-mending
+            chunky
             ct-overhaul-village
-            deepslatecutting
+            cycle-paintings
+            double-doors
             highspeed-rail
-            inventory-sorting
+            horsebuff
+            inventory-totem
             leaves-be-gone
             mine-spawners
             netherportalfix
+            no-feather-trample
+            rightclickharvest
+            scaffolding-drops-nearby
             serversleep
-            stackables
+            snow-under-trees-remastered
+            sparsestructures
+            stack-refill
+            starter-kit
+            toggle-item-frames
+            tool-trims
             towns-and-towers
             true-ending
             worldedit
@@ -141,12 +152,15 @@ services:
 # - Hopo Better Ruined Portals                                     #
 # - Hopo Better Mineshaft                                          #
 # - Keep Some Inventory                                            #
+# - MasterCutter                                                   #
 # - Nullscape                                                      #
+# - Ships                                                          #
 # - Spawn Animations                                               #
 # - Structory                                                      #
 # - Structory Towers                                               #
 # - Terralith                                                      #
 # - Terratonic                                                     #
+# - Tidal Towns                                                    #
 # - Waystones V3                                                   #
 #                                                                  #
 # Note: The order below matters:                                   #
@@ -158,15 +172,18 @@ services:
             https://cdn.modrinth.com/data/hl5OLM95/versions/WCyhs86R/Geophilic%20v2.4.1%20f15-48.zip
             https://cdn.modrinth.com/data/tpehi7ww/versions/cpJzZfzm/Dungeons%20and%20Taverns%20v3.1.1.zip
             https://cdn.modrinth.com/data/rYocd2LE/versions/KDwtYgdJ/DnT%20Stronghold%20Rework%20v1.1.2.zip
+            https://cdn.modrinth.com/data/EEIwvQVo/versions/vFRKmgA8/tidal-towns-1.3.3.jar
             https://cdn.modrinth.com/data/BuWCQzqf/versions/AriVZ4Yz/%5BDatapackVer.%5DHopoBetterUnderwaterRuins-%5B1.20.2-1.20.4%5D-1.1.6.zip
             https://cdn.modrinth.com/data/hIpLSyga/versions/4Ui7MIgI/%5BDatapack%20Ver.%5DHopoBetterRuinedPortals-%5B1.20.2-1.20.4%5D-1.4.0.zip
             https://cdn.modrinth.com/data/9IxCUYAP/versions/RvAVx92z/%5BDatapackVer.%5DHopoBetterMineshaft-%5B1.20.2-1.20.4%5D-1.2.2b.zip
             https://cdn.modrinth.com/data/HSfsxuTo/versions/6l2WsrQZ/Explorify%20v1.5.0%20f10-48.zip
+            https://cdn.modrinth.com/data/M185nxi6/versions/xmbECuEZ/Ships%203.0.3.zip
             https://www.stardustlabs.net/s/Structory_120_v135.zip
             https://www.stardustlabs.net/s/Structory_Towers_120_v107.zip
             https://www.stardustlabs.net/s/Nullscape_120_v126.zip
             https://cdn.modrinth.com/data/XCIMrYn0/versions/nLL1UqGv/Hearths%20v1.0.1%20f12-48.zip
             https://cdn.modrinth.com/data/zrzYrlm0/versions/aGw3yWky/spawnanimations-v1.9.4-mc1.17x-1.20x-datapack.zip
+            https://cdn.modrinth.com/data/DuUMFIfX/versions/N6LamE8O/MasterCutter%2Bv1.2.1-exp.1.21%28mc-1.20.3-4%29.zip
             https://cdn.modrinth.com/data/VHSdL301/versions/PmdpULTr/KeepSomeInventory-v1.3.3.zip
             https://cdn.modrinth.com/data/UKUcgltR/versions/krwKHtoE/PK_Waystones_V3.2.5_MC_1.20.3_to_1.20.4.zip
             https://cdn.modrinth.com/data/VoVJ47kN/versions/fVpQcesg/BlazeandCave%27s%20Advancements%20Pack%201.16.7.zip
