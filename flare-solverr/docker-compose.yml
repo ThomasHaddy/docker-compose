@@ -1,5 +1,4 @@
 ---
-version: "2.1"
 services:
   flaresolverr:
     image: flaresolverr/flaresolverr:latest
@@ -10,5 +9,5 @@ services:
       - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
       - TZ=${TZ:-UTC}
     ports:
-      - ${HOST_PORT}:${DOCKER_PORT}
+      - ${HOST_PORT}:${DOCK_PORT}
     restart: unless-stopped

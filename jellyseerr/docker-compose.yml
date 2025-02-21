@@ -1,5 +1,4 @@
 ---
-version: '3'
 services:
     jellyseerr:
        image: fallenbagel/jellyseerr:latest
@@ -10,5 +9,9 @@ services:
        ports:
             - ${WEB_UI}:5055
        volumes:
-            - ${CONFIG}:/app/config
+            - ${BASE}/config:/app/config
        restart: unless-stopped
+
+volumes:
+  jellyseerr-data:
+    external: true

@@ -1,13 +1,13 @@
-version: "2.1"
+---
 services:
   lidarr-extended:
     image: randomninjaatk/lidarr-extended:latest
     container_name: lidarr-extended
     volumes:
-      - ${CONFIG_DIR}:/config
-      - ${DOWNLOADS}:/downloads-lidarr-extended
-      - ${MUSIC_DIR}:/music
-      - ${MUSIC_VIDEOS_DIR}:/music-videos
+      - ${BASE}/config:/config
+      - ${DOWNLOADS}/downloads/completed/lidarr:/downloads-lidarr-extended
+      - ${MEDIA}/music:/music
+      - ${MEDIA}/music-videos:/music-videos
     environment:
       - TZ=${TZ:-UTC}
       - PUID=1000
@@ -40,5 +40,5 @@ services:
       - beetsMatchPercentage=90
       - retryNotFound=90
     ports:
-      - 8686:8686
+      - ${PORT_HOST}:${PORT_DOCK}
     restart: unless-stopped

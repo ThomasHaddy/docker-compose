@@ -1,5 +1,4 @@
 ---
-version: "2.1"
 services:
   jellyfin:
     image: lscr.io/linuxserver/jellyfin:latest
@@ -8,17 +7,22 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TZ:-UTC}
-      - JELLYFIN_PublishedServerUrl=${JELLY_SERVER}
     volumes:
-      - ${CONFIG_DIR}:/config
-      - ${CACHE_DIR}:/cache
-      - ${SHOWS_DIR}:/data/tvshows
-      - ${SHOWS_DIR_4K}:/data/tvshows-4k
-      - ${MOVIES_DIR}:/data/movies
-      - ${MOVIES_DIR_4K}:/data/movies-4k
-      - ${MUSIC_DIR}:/data/music
+      - ${BASE}/config:/config
+      - ${BASE}/cache:/cache
+      - ${MEDIA}/shows:/data/tvshows
+      - ${MEDIA}/shows-4k:/data/tvshows-4k
+      - ${MEDIA}/movies:/data/movies
+      - ${MEDIA}/movies-4k:/data/movies-4k
+      - ${MEDIA}/music:/data/music
     ports:
-      - ${JELLY_PORT}:8096
+      - ${HOST_PORT}:8096
       - ${JELLY_UDP_PORT}:7359/udp
-#      - 1900:1900/udp #optional
+    networks:
+      - nginx_default
     restart: unless-stopped
+
+networks:
+  nginx_default:
+      external: true
+      name: nginx_default

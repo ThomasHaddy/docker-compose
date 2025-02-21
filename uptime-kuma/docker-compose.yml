@@ -1,12 +1,11 @@
-version: '3.3'
-
+---
 services:
   uptime-kuma:
     image: louislam/uptime-kuma:1
     container_name: uptime-kuma
     volumes:
-      - ${KUMA}:/app/data
+      - ${BASE}/data:/app/data
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
-      - ${WEB_UI}:3001
+      - ${WEB_UI}:${WEB_UI}
     restart: unless-stopped

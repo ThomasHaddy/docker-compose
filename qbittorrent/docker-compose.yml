@@ -1,0 +1,35 @@
+---
+services:
+
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    ports: #make sure to include these for qbittorrent to work
+      - ${TCP_PORT}:${TCP_PORT}
+      - ${TCP_PORT}:${TCP_PORT}/udp
+      - ${WEB_UI}:${WEB_UI}
+    environment:
+      - VPN_SERVICE_PROVIDER=mullvad
+      - VPN_TYPE=wireguard
+      - WIREGUARD_PRIVATE_KEY=${PRIV_KEY}
+      - WIREGUARD_ADDRESSES=${WIRE_ADDRS}
+      - SERVER_CITIES=${CITY} #choose any available city
+    volumes:
+      - ${BASE}/gluetun:/gluetun
+    restart: unless-stopped
+
+  qbittorrent:
+    image: ghcr.io/linuxserver/qbittorrent
+    container_name: qbittorrent
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+      - WEBUI_PORT=${WEB_UI}
+    volumes:
+      - ${BASE}/config:/config
+      - ${BASE}/downloads:/downloads
+    network_mode: "container:gluetun" #change gluetun to your VPN container name
+    restart: unless-stopped

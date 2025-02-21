@@ -1,5 +1,4 @@
 ---
-version: "2.1"
 services:
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
@@ -9,7 +8,7 @@ services:
       - PGID=1000
       - TZ=${TZ:-UTC}
     volumes:
-      - ${CONFIG}:/config
+      - ${BASE}/config:/config
     ports:
       - ${HOST_PORT}:${DOCK_PORT}
     restart: unless-stopped
