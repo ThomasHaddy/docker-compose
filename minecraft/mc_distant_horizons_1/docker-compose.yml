@@ -78,7 +78,7 @@ services:
 #                                                                  #
 # Sets the Minecraft version                                       #
 ####################################################################
-         VERSION: 1.21
+         VERSION: 1.21.1
 
 ####################################################################
 #                           MODPACK                                #
@@ -96,6 +96,7 @@ services:
 #                                                                  #
 # Add "slugs" to the mods you would like to use:                   #
 ####################################################################
+         MODRINTH_ALLOWED_VERSION_TYPE: "beta"
          MODRINTH_PROJECTS: |
             anvil-restoration
             better-stats
@@ -103,6 +104,7 @@ services:
             chunky
             ct-overhaul-village
             cycle-paintings
+            distanthorizons
             double-doors
             horsebuff
             inventory-totem
@@ -116,6 +118,8 @@ services:
             sparsestructures
             stack-refill
             starter-kit
+            tectonic
+            terralith
             toggle-item-frames
             tool-trims
             towns-and-towers
@@ -150,8 +154,6 @@ services:
 # - Spawn Animations                                               #
 # - Structory                                                      #
 # - Structory Towers                                               #
-# - Terralith                                                      #
-# - Terratonic                                                     #
 # - Tidal Towns                                                    #
 # - Waystones V3                                                   #
 #                                                                  #
@@ -159,15 +161,13 @@ services:
 ####################################################################
          REMOVE_OLD_DATAPACKS: "true"
          DATAPACKS: |
-            https://cdn.modrinth.com/data/3L2L6sWL/versions/BE3gZYQ5/terratonic-datapack-v3.2.zip
-            https://cdn.modrinth.com/data/8oi3bsk5/versions/urbokcOc/Terralith_1.21_v2.5.8.zip
             https://cdn.modrinth.com/data/hl5OLM95/versions/TzBS7BNM/Geophilic%20v3.2%20f15-61.zip
             https://cdn.modrinth.com/data/tpehi7ww/versions/9Dw6hgJA/Dungeons%20and%20Taverns%20v4.4.4.zip
             https://cdn.modrinth.com/data/rYocd2LE/versions/7P1LFyoY/DnT%20Stronghold%20Overhaul%20v2.1.f.zip
             https://cdn.modrinth.com/data/EEIwvQVo/versions/zZ83E9TB/tidal_1.3.4.zip
-            https://cdn.modrinth.com/data/BuWCQzqf/versions/r0MXQpkt/hopobetterunderwaterruins-1-21-1-2-0b.zip
-            https://cdn.modrinth.com/data/hIpLSyga/versions/5f8SYcjJ/hopobetterruinedportals-1-21-1-4-3.zip
-            https://cdn.modrinth.com/data/9IxCUYAP/versions/ILiTSjXA/hopobettermineshaft-1-21-1-2-7.zip
+            https://cdn.modrinth.com/data/BuWCQzqf/versions/xu1bNpw3/hopobetterunderwaterruins-1-21-3-1-2-1.zip
+            https://cdn.modrinth.com/data/hIpLSyga/versions/zjmM898r/hopobetterruinedportals-1-21-3-1-4-4.zip
+            https://cdn.modrinth.com/data/9IxCUYAP/versions/czixsB9B/HopoBetterMineshaft-%5B1.21-1.21.3%5D-1.3.0.zip
             https://cdn.modrinth.com/data/HSfsxuTo/versions/TQiCdZIY/Explorify%20v1.6.2%20f10-48.zip
             https://cdn.modrinth.com/data/M185nxi6/versions/xmbECuEZ/Ships%203.0.3.zip
             https://cdn.modrinth.com/data/aKCwCJlY/versions/7osPCZj1/Structory_1.21_v1.3.9.zip
@@ -175,7 +175,7 @@ services:
             https://cdn.modrinth.com/data/LPjGiSO4/versions/J4B2BaWk/Nullscape_1.21_v1.2.10.zip
             https://cdn.modrinth.com/data/XCIMrYn0/versions/wFzfzp5e/Hearths%20v1.0.2%20f12-61.zip
             https://cdn.modrinth.com/data/zrzYrlm0/versions/nnJd2xL0/spawnanimations-v1.10-mc1.17x-1.21x-datapack.zip
-            https://cdn.modrinth.com/data/82uI0waE/versions/TMwl4dy3/MobHeads-%5B1.21%5D-v.3.1.2.zip
+            https://cdn.modrinth.com/data/82uI0waE/versions/108wDYUc/MobHeads-%5B1.21%5D-v.3.2.0.zip
             https://cdn.modrinth.com/data/DuUMFIfX/versions/tBxP2OTe/MasterCutter%2Bv1.3.1%28mc-1.21%29.zip
             https://cdn.modrinth.com/data/RZw0JtqY/versions/15d9iY5W/darcenos-minecarts-slower-1.4.zip
             https://cdn.modrinth.com/data/VHSdL301/versions/h7K3vS6O/KeepSomeInventory-v2.0.1.zip
