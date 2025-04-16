@@ -78,7 +78,7 @@ services:
 #                                                                  #
 # Sets the Minecraft version                                       #
 ####################################################################
-         VERSION: 1.21.1
+         VERSION: 1.21.4
 
 ####################################################################
 #                           MODPACK                                #
@@ -99,6 +99,7 @@ services:
          MODRINTH_ALLOWED_VERSION_TYPE: "beta"
          MODRINTH_PROJECTS: |
             anvil-restoration
+            audaki-cart-engine
             better-stats
             better-than-mending
             chunky
@@ -137,7 +138,6 @@ services:
 #                                                                  #
 # Add URIs to the datapacks you would like to use:                 #
 # - Blaze and Cave's Advancements                                  #
-# - Darceno's Minecarts                                            #
 # - Dungeons and Taverns                                           #
 # - Dungeons and Taverns Stronghold Rework                         #
 # - Explorify                                                      #
@@ -146,7 +146,7 @@ services:
 # - Hopo Better Underwater Ruins                                   #
 # - Hopo Better Ruined Portals                                     #
 # - Hopo Better Mineshaft                                          #
-# - Keep Some Inventory                                            #
+# - [Stubbed] Keep Some Inventory                                  #
 # - MasterCutter                                                   #
 # - Mob Heads                                                      #
 # - Nullscape                                                      #
@@ -161,26 +161,24 @@ services:
 ####################################################################
          REMOVE_OLD_DATAPACKS: "true"
          DATAPACKS: |
-            https://cdn.modrinth.com/data/hl5OLM95/versions/TzBS7BNM/Geophilic%20v3.2%20f15-61.zip
-            https://cdn.modrinth.com/data/tpehi7ww/versions/9Dw6hgJA/Dungeons%20and%20Taverns%20v4.4.4.zip
-            https://cdn.modrinth.com/data/rYocd2LE/versions/7P1LFyoY/DnT%20Stronghold%20Overhaul%20v2.1.f.zip
+            https://cdn.modrinth.com/data/hl5OLM95/versions/g0gG8hfu/Geophilic%20v3.4%20f15-71.dp.zip
+            https://cdn.modrinth.com/data/tpehi7ww/versions/Gu9qNQfD/Dungeons%20and%20Taverns%20v4.6.3.zip
+            https://cdn.modrinth.com/data/rYocd2LE/versions/HJ3nlNAh/DnT%20Stronghold%20Overhaul%20v2.3.zip
             https://cdn.modrinth.com/data/EEIwvQVo/versions/zZ83E9TB/tidal_1.3.4.zip
-            https://cdn.modrinth.com/data/BuWCQzqf/versions/xu1bNpw3/hopobetterunderwaterruins-1-21-3-1-2-1.zip
-            https://cdn.modrinth.com/data/hIpLSyga/versions/zjmM898r/hopobetterruinedportals-1-21-3-1-4-4.zip
-            https://cdn.modrinth.com/data/9IxCUYAP/versions/czixsB9B/HopoBetterMineshaft-%5B1.21-1.21.3%5D-1.3.0.zip
+            https://cdn.modrinth.com/data/BuWCQzqf/versions/E9Asuslw/hopobetterunderwaterruins-1-21-4-1-2-2.zip
+            https://cdn.modrinth.com/data/hIpLSyga/versions/RJzZTV8i/hopobetterruinedportals-1-21-4-1-4-5.zip
+            https://cdn.modrinth.com/data/9IxCUYAP/versions/MuQUUVpL/hopobettermineshaft-1-21-4-1-3-0.zip
             https://cdn.modrinth.com/data/HSfsxuTo/versions/TQiCdZIY/Explorify%20v1.6.2%20f10-48.zip
-            https://cdn.modrinth.com/data/M185nxi6/versions/xmbECuEZ/Ships%203.0.3.zip
-            https://cdn.modrinth.com/data/aKCwCJlY/versions/7osPCZj1/Structory_1.21_v1.3.9.zip
-            https://cdn.modrinth.com/data/j3FONRYr/versions/BmBou6CE/Structory_Towers_1.21_v1.0.10.zip
-            https://cdn.modrinth.com/data/LPjGiSO4/versions/J4B2BaWk/Nullscape_1.21_v1.2.10.zip
-            https://cdn.modrinth.com/data/XCIMrYn0/versions/wFzfzp5e/Hearths%20v1.0.2%20f12-61.zip
+            https://cdn.modrinth.com/data/M185nxi6/versions/SnG015x7/Ships%203.0.4.zip
+            https://cdn.modrinth.com/data/aKCwCJlY/versions/Jdpjc1q4/Structory_1.21_v1.3.10.zip
+            https://cdn.modrinth.com/data/j3FONRYr/versions/fQp38MFB/Structory_Towers_1.21_v1.0.11.zip
+            https://cdn.modrinth.com/data/LPjGiSO4/versions/ax0CK7UA/Nullscape_1.21_v1.2.11.zip
+            https://cdn.modrinth.com/data/XCIMrYn0/versions/7p7hR0tj/Hearths%20v1.0.3%20f12-71.zip
             https://cdn.modrinth.com/data/zrzYrlm0/versions/nnJd2xL0/spawnanimations-v1.10-mc1.17x-1.21x-datapack.zip
-            https://cdn.modrinth.com/data/82uI0waE/versions/108wDYUc/MobHeads-%5B1.21%5D-v.3.2.0.zip
-            https://cdn.modrinth.com/data/DuUMFIfX/versions/tBxP2OTe/MasterCutter%2Bv1.3.1%28mc-1.21%29.zip
-            https://cdn.modrinth.com/data/RZw0JtqY/versions/15d9iY5W/darcenos-minecarts-slower-1.4.zip
-            https://cdn.modrinth.com/data/VHSdL301/versions/h7K3vS6O/KeepSomeInventory-v2.0.1.zip
-            https://cdn.modrinth.com/data/UKUcgltR/versions/XhFPlJB6/pk_waystones_v.3.4.1_mc_1.21_to_1.21.1.zip
-            https://cdn.modrinth.com/data/VoVJ47kN/versions/b3J8pJcW/BlazeandCave%27s%20Advancements%20Pack%201.17.2.zip
+            https://cdn.modrinth.com/data/82uI0waE/versions/xkngvGum/MobHeads-%5B1.21%5D-v.3.2.2.zip
+            https://cdn.modrinth.com/data/DuUMFIfX/versions/P2KAh5dz/MasterCutter%2Bv1.5-mc1.21.4.zip
+            https://cdn.modrinth.com/data/UKUcgltR/versions/7uQ7OHeF/pk_waystones_v.3.4.3_mc_1.21.4.zip
+            https://cdn.modrinth.com/data/VoVJ47kN/versions/i8N5hYLH/BlazeandCave%27s%20Advancements%20Pack%201.18.1.zip
 
 ####################################################################
 #                           RESOURCEPACKS                          #
@@ -195,7 +193,7 @@ services:
 #                                                                  #
 # Set Maximum amount of memory allowed for your server.            #
 ####################################################################
-         MEMORY: "12G"
+         MEMORY: "8G"
 
 ####################################################################
 #                         Logging Options                          #
