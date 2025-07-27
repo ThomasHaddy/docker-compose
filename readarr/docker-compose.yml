@@ -10,7 +10,7 @@ services:
     volumes:
       - ${BASE}/config:/config
       - ${MEDIA}/books:/books #optional
-      - ${CLIENT}/downloads/completed/readarr:/downloads #optional
+      - ${CLIENT}/downloads:/downloads #optional
     ports:
       - ${WEB_UI}:8787
     restart: unless-stopped

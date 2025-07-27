@@ -1,0 +1,16 @@
+---
+services:
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ:-UTC}
+    volumes:
+      - ${BASE}/config:/config
+      - ${MEDIA}/music:/music #optional
+      - ${CLIENT}/downloads:/downloads #optional
+    ports:
+      - ${PORT_HOST}:${PORT_DOCK}
+    restart: unless-stopped
