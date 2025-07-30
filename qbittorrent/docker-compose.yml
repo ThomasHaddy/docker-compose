@@ -2,7 +2,7 @@
 services:
 
   gluetun:
-    image: qmcgaw/gluetun
+    image: qmcgaw/gluetun:latest
     container_name: gluetun
     cap_add:
       - NET_ADMIN
@@ -10,6 +10,9 @@ services:
       - ${TCP_PORT}:${TCP_PORT}
       - ${TCP_PORT}:${TCP_PORT}/udp
       - ${WEB_UI}:${WEB_UI}
+    dns:
+       - ${DNS_IP}
+       - ${SECONDARY_DNS_IP}
     environment:
       - VPN_SERVICE_PROVIDER=mullvad
       - VPN_TYPE=wireguard
@@ -20,9 +23,14 @@ services:
       - ${BASE}/gluetun:/gluetun
     restart: unless-stopped
 
+# For the first use, a temporary password is provided to login.
+# To log in for the first time, use the local IP address of the host.
+# Do not use the DNS hostname. For whatever reason, it cannot
+# authenticate.
   qbittorrent:
-    image: ghcr.io/linuxserver/qbittorrent
+    image: ghcr.io/linuxserver/qbittorrent:latest
     container_name: qbittorrent
+    network_mode: "service:gluetun"
     environment:
       - PUID=1000
       - PGID=1000
@@ -31,5 +39,6 @@ services:
     volumes:
       - ${BASE}/config:/config
       - ${BASE}/downloads:/downloads
-    network_mode: "container:gluetun" #change gluetun to your VPN container name
+    depends_on:
+      - gluetun
     restart: unless-stopped

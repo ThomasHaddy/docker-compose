@@ -12,7 +12,7 @@ services:
 #                                                                  #
 # Example: 'name:' or 'mc_atm6:'                                   #
 ####################################################################
-   modpack_landscapes-reimagined-genesis:
+   mc_modpack_landscapes-reimagined-genesis:
 
 ####################################################################
 #                      Image & Container Name                      #
@@ -26,7 +26,7 @@ services:
 # name that will show when you run 'docker ps' commands.           #
 ####################################################################
       image: itzg/minecraft-server:latest
-      container_name: modpack_landscapes-reimagined-genesis
+      container_name: mc_modpack_landscapes-reimagined-genesis
 
 ####################################################################
 #                         Server Ports                             #
@@ -91,6 +91,15 @@ services:
          MODRINTH_LOADER: "fabric"
          MODRINTH_DOWNLOAD_DEPENDENCIES: "required"
          MODRINTH_MODPACK: landscapes-reimagined-genesis
+
+####################################################################
+#                           MODS                                   #
+#                                                                  #
+# Add "slugs" to the mods you would like to use:                   #
+####################################################################
+         MODRINTH_ALLOWED_VERSION_TYPE: "beta"
+         MODRINTH_PROJECTS: |
+            distanthorizons
 
 ####################################################################
 #                          Server Memory                           #

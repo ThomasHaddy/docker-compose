@@ -12,7 +12,7 @@ services:
 #                                                                  #
 # Example: 'name:' or 'mc_atm6:'                                   #
 ####################################################################
-   modpack_elysium_days:
+   mc_modpack_elysium_days:
 
 ####################################################################
 #                      Image & Container Name                      #
@@ -26,7 +26,7 @@ services:
 # name that will show when you run 'docker ps' commands.           #
 ####################################################################
       image: itzg/minecraft-server:latest
-      container_name: modpack_elysium_days
+      container_name: mc_modpack_elysium_days
 
 ####################################################################
 #                         Server Ports                             #
