@@ -111,6 +111,7 @@ services:
             horsebuff
             inventory-totem
             leaves-be-gone
+            mastercutter
             mine-spawners
             netherportalfix
             no-feather-trample

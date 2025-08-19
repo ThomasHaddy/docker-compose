@@ -1,6 +1,4 @@
 ---
-version: "3"
-
 ####################################################################
 #                   MINECRAFT VANILLA SERVER                       #
 ####################################################################
@@ -14,7 +12,7 @@ services:
 #                                                                  #
 # Example: 'name:' or 'mc_atm6:'                                   #
 ####################################################################
-  mc-vanilla_minecraft_1:
+  mc-vanilla:
 
 ####################################################################
 #                      Image & Container Name                      #
@@ -27,8 +25,8 @@ services:
 # 'container_name:' This can be anything you like. This is the name#
 # that will show when you run 'docker ps' commands.                #
 ####################################################################
-    image: itzg/minecraft-server
-    container_name: mc-vanilla_minecraft_1
+    image: itzg/minecraft-server:latest
+    container_name: mc-vanilla
 
 ####################################################################
 #                         Server Ports                             #
@@ -36,7 +34,10 @@ services:
 # Specify external port.                                           #
 ####################################################################
     ports:
-      - ${MC_PORT_HOST}:${MC_PORT_DOCKER}
+       - ${MC_PORT_HOST}:${MC_PORT_DOCKER}/tcp
+       - ${MC_PORT_HOST}:${MC_PORT_DOCKER}/udp
+    dns:
+      - 1.1.1.1
 
 ####################################################################
 #                   Automatic Server Restart                       #
@@ -57,7 +58,7 @@ services:
 # to the default values unless you know what you are doing.        #
 ####################################################################
     volumes:
-      - minecraftdata:/data
+      - minecraftdata_vanilla:/data
 
 ####################################################################
 #                             EULA                                 #
@@ -80,7 +81,7 @@ services:
 #                                                                  #
 # Sets the Minecraft version                                       #
 ####################################################################
-      VERSION: 1.20.2
+      VERSION: "LATEST"
 
 ####################################################################
 #                           SERVER TYPE                            #
@@ -88,20 +89,20 @@ services:
       TYPE: "PAPER"
 
 ####################################################################
-#                           DATAPACKS                              #
+#                           PLUGINS                                #
 #                                                                  #
-# Add URIs to the datapacks you would like to use                  #
-# For Terralith, you can go here to get the URI:
-# https://www.stardustlabs.net/version-library
+# Add "slugs" to the mods you would like to use:                   #
 ####################################################################
-      DATAPACKS: https://www.stardustlabs.net/s/Terralith_1194_v237.zip
+      PLUGINS: |
+        https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
+        https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
 
 ####################################################################
 #                          Server Memory                           #
 #                                                                  #
 # Set Maximum amount of memory allowed for your server.            #
 ####################################################################
-      MEMORY: "8G"
+      MEMORY: "4G"
 
 ####################################################################
 #                         Logging Options                          #
@@ -131,7 +132,6 @@ services:
       OPS: ${OP_USER}
       VIEW_DISTANCE: 10
       MAX_PLAYERS: 10
-      SEED: ${SEED}
       MOTD: ${MOTD}
 
     tty: true
@@ -143,5 +143,5 @@ services:
 # and what will be backed up.                                      #
 ####################################################################
 volumes:
-  minecraftdata:
+  minecraftdata_vanilla:
     external: true
