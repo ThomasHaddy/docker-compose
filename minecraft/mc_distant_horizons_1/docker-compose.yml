@@ -33,9 +33,9 @@ services:
 # Specify external port.                                           #
 ####################################################################
       ports:
-         - ${MC_PORT_HOST}:${MC_PORT_DOCKER}
+         - ${MC_PORT_HOST}:${MC_PORT_DOCKER}/tcp
       dns:
-         - 8.8.8.8
+         - 1.1.1.1
 
 ####################################################################
 #                   Automatic Server Restart                       #

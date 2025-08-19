@@ -33,9 +33,6 @@ services:
 #                                                                  #
 # Specify external port.                                           #
 ####################################################################
-    ports:
-       - ${MC_PORT_HOST}:${MC_PORT_DOCKER}/tcp
-       - ${MC_PORT_HOST}:${MC_PORT_DOCKER}/udp
     dns:
       - 1.1.1.1
 
