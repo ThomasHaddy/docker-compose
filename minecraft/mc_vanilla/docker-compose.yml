@@ -27,6 +27,8 @@ services:
 ####################################################################
     image: itzg/minecraft-server:latest
     container_name: mc-vanilla
+    tty: true
+    stdin_open: true
 
 ####################################################################
 #                         Server Ports                             #
@@ -88,7 +90,7 @@ services:
 ####################################################################
 #                           PLUGINS                                #
 #                                                                  #
-# Add "slugs" to the mods you would like to use:                   #
+# Add URLs to the plugins you would like to use:                   #
 ####################################################################
       PLUGINS: |
         https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
@@ -130,9 +132,8 @@ services:
       VIEW_DISTANCE: 10
       MAX_PLAYERS: 10
       MOTD: ${MOTD}
+      SEED: ${SEED}
 
-    tty: true
-    stdin_open: true
 ####################################################################
 #                            Volumes                               #
 #                                                                  #
