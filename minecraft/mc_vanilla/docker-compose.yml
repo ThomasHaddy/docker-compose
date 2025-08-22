@@ -88,19 +88,44 @@ services:
       TYPE: "PAPER"
 
 ####################################################################
+#                           DATAPACKS                              #
+#                                                                  #
+# Add URIs to the datapacks you would like to use:                 #
+# - Blaze and Cave's Advancements                                  #
+# - MasterCutter                                                   #
+# - Waystones V3                                                   #
+#                                                                  #
+# Note: The order below matters:                                   #
+####################################################################
+      REMOVE_OLD_DATAPACKS: "true"
+      DATAPACKS: |
+        https://cdn.modrinth.com/data/VoVJ47kN/versions/cFFa5Axs/BlazeandCave%27s%20Advancements%20Pack%201.19.1.zip
+        https://cdn.modrinth.com/data/UKUcgltR/versions/co0LTVG7/pk_waystones_V.3.4.9_mc_1.21.5.zip
+        https://cdn.modrinth.com/data/DuUMFIfX/versions/b5zy88FN/MasterCutter%2Bv1.5.2-mc1.21.6.zip
+        https://cdn.modrinth.com/data/zrzYrlm0/versions/PogoWIew/spawnanimations-v1.11-mc1.17-1.21.8-datapack.zip
+
+####################################################################
+#                           RESOURCEPACKS                          #
+#                                                                  #
+# Add URIs to the resourcepack you would like to use               #
+####################################################################
+      RESOURCE_PACK: https://cdn.modrinth.com/data/1D9ModDm/versions/9O9kUbLk/Waystones_RP_2.10.zip
+      RESOURCE_PACK_SHA1: cb23cd99d864e0ab25ee353b16b28550647f6127
+
+####################################################################
 #                           PLUGINS                                #
 #                                                                  #
 # Add URLs to the plugins you would like to use:                   #
 ####################################################################
       PLUGINS: |
+        https://www.spigotmc.org/resources/auraskills.81069/download?version=602118
         https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
         https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
+        https://www.spigotmc.org/resources/damage-indicator-plugin-1-8-1-21-6-spectraldamage-no-dependencies.110551/download?version=595223
         https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsX-2.22.0-dev+19-7bc91f1.jar
         https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/artifact/jars/EssentialsXSpawn-2.22.0-dev+19-7bc91f1.jar
-        https://www.spigotmc.org/resources/f3nperm.46461/download?version=590683
         https://www.spigotmc.org/resources/luckperms.28140/download?version=590885
         https://github.com/ViaVersion/ViaVersion/releases/download/5.4.2/ViaVersion-5.4.2.jar
-        https://github.com/ViaVersion/ViaBackwards/releases/download/5.4.2/ViaBackwards-5.4.2.jar
         https://dev.bukkit.org/projects/worldedit/files/latest
         https://dev.bukkit.org/projects/worldguard/files/latest
 
