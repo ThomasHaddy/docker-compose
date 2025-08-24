@@ -1,248 +1,283 @@
 ---
 ####################################################################
-#                       MINECRAFT SERVER                           #
+# MINECRAFT SERVER
 ####################################################################
 services:
 ####################################################################
-#                         Service Name                             #
-#                                                                  #
-# Define Service Name here. If using RCON this name will be        #
-# referenced again as RWA_RCON_HOST below.                         #
-#                                                                  #
-# Example: 'name:' or 'mc_atm6:'                                   #
+# Service Name
 ####################################################################
-   mc_distant_horizons_1:
+#
+# DIRECTIONS
+# Define Service Name here. If using RCON this name will be
+# referenced again as RWA_RCON_HOST below.
+# EXAMPLE
+# Example: 'mc_atm6:'
+####################################################################
+  mc_distant_horizons_1:
 
 ####################################################################
-#                      Image & Container Name                      #
-#                                                                  #
-# Specify Image Name and Java Version. The 'image' will always be  #
-# 'itzg/minecraft-server' however the tag added to the end is      #
-# where you can specify the java version or container architecture.#
-# See readme.md for a full list.                                   #
-#                                                                  #
-# 'container_name:' This can be anything you like. This is the     #
-# name that will show when you run 'docker ps' commands.           #
+# Image & Container Name
 ####################################################################
-      image: itzg/minecraft-server:latest
-      container_name: mc_distant_horizons_1
+#
+# DIRECTIONS
+# Specify Image Name and Java Version. The 'image' will always be
+# 'itzg/minecraft-server' however the tag added to the end is
+# where you can specify the java version or container architecture.
+# See readme.md for a full list.
+#
+# OPTIONS
+# - 'container_name:': This can be anything you like. This is the
+# name that will show when you run 'docker ps' commands.
+####################################################################
+    image: itzg/minecraft-server:latest
+    container_name: mc_distant_horizons_1
 
 ####################################################################
-#                         Server Ports                             #
-#                                                                  #
-# Specify external port.                                           #
+# Server Ports
 ####################################################################
-      ports:
-         - ${MC_PORT_HOST}:${MC_PORT_DOCKER}/tcp
-      dns:
-         - 1.1.1.1
+#
+# DIRECTIONS
+# Specify external port.
+####################################################################
+    ports:
+      - ${MC_PORT_HOST}:${MC_PORT_DOCKER}/tcp
+    dns:
+      - 1.1.1.1
 
 ####################################################################
-#                   Automatic Server Restart                       #
-#                                                                  #
-# Define a restart policy here.                                    #
-#    - 'no' = Do not restart.                                      #
-#    - 'on-failure' = Restart if container exits because an error. #
-#    - 'always' = Regardless of stop reason.                       #
-#    - 'unless-stopped' = Similar to always except if stopped.     #
+# Automatic Server Restart
 ####################################################################
-      restart: unless-stopped
+#
+# DIRECTIONS
+# Define a restart policy here.
+# - 'no' : Do not restart.
+# - 'on-failure' : Restart if container exits because an error.
+# - 'always' : Regardless of stop reason.
+# - 'unless-stopped' : Similar to always except if stopped.
+####################################################################
+    restart: unless-stopped
 
 ####################################################################
-#                     Volume and Folder Access                     #
-#                                                                  #
-# This section defines what folders and volumes you want to give   #
-# this container access to. It is recommended to leaves these set  #
-# to the default values unless you know what you are doing.        #
+# Volume and Folder Access
 ####################################################################
-      volumes:
-         - minecraftdata_mc_distant_horizons_1:/data
+#
+# DIRECTIONS
+# This section defines what folders and volumes you want to give
+# this container access to. It is recommended to leaves these set
+# to the default values unless you know what you are doing.
+####################################################################
+    volumes:
+      - minecraftdata_mc_distant_horizons_1:/data
 
 ####################################################################
-#                             EULA                                 #
-#                                                                  #
-# Accept EULA by setting to "true"                                 #
+# EULA
 ####################################################################
-      environment:
-         EULA: "TRUE"
+#
+# DESCRIPTION
+# Accept EULA by setting to "true"
+####################################################################
+    environment:
+      EULA: "TRUE"
 
 ####################################################################
-#                       CONTAINER USER                             #
-#                                                                  #
-# Sets the default user to run the container                       #
+# CONTAINER USER
 ####################################################################
-         PUID: 1000
-         PGID: 1000
+#
+# DESCRIPTION
+# Sets the default user to run the container
+####################################################################
+      PUID: 1000
+      PGID: 1000
 
 ####################################################################
-#                       MINECRAFT VERSION                          #
-#                                                                  #
-# Sets the Minecraft version                                       #
+# MINECRAFT VERSION
 ####################################################################
-         VERSION: 1.21.4
+#
+# DESCRIPTION
+# Sets the Minecraft version
+####################################################################
+      VERSION: 1.21.4
 
 ####################################################################
-#                           MODPACK                                #
-#                                                                  #
-# Add a "slug" to the modpack you would like to use:               #
+# MODPACK
+####################################################################
+# DESCRIPTION
+# Add a "slug" to the modpack you would like to use:
+#
+# LIST
 # - Simply Optimized
 ####################################################################
-         MOD_PLATFORM: MODRINTH
-         MODRINTH_LOADER: "fabric"
-         MODRINTH_DOWNLOAD_DEPENDENCIES: "required"
-         MODRINTH_MODPACK: sop
+      MOD_PLATFORM: MODRINTH
+      MODRINTH_LOADER: "fabric"
+      MODRINTH_DOWNLOAD_DEPENDENCIES: "required"
+      MODRINTH_MODPACK: sop
 
 ####################################################################
-#                           MODS                                   #
-#                                                                  #
-# Add "slugs" to the mods you would like to use:                   #
+# MODS
 ####################################################################
-         MODRINTH_ALLOWED_VERSION_TYPE: "beta"
-         MODRINTH_PROJECTS: |
-            anvil-restoration
-            audaki-cart-engine
-            better-stats
-            better-than-mending
-            chunky
-            ct-overhaul-village
-            cycle-paintings
-            distanthorizons
-            double-doors
-            horsebuff
-            inventory-totem
-            leaves-be-gone
-            mastercutter
-            mine-spawners
-            netherportalfix
-            no-feather-trample
-            rightclickharvest
-            scaffolding-drops-nearby
-            serversleep
-            sparsestructures
-            stack-refill
-            starter-kit
-            tectonic
-            terralith
-            toggle-item-frames
-            tool-trims
-            towns-and-towers
-            true-ending
-            yungs-better-desert-temples
-            yungs-better-dungeons
-            yungs-better-end-island
-            yungs-better-jungle-temples
-            yungs-better-nether-fortresses
-            yungs-better-ocean-monuments
-            yungs-better-witch-huts
+#
+# DIRECTIONS
+# Add "slugs" to the mods you would like to use:
+####################################################################
+      MODRINTH_ALLOWED_VERSION_TYPE: "beta"
+      MODRINTH_PROJECTS: |
+        anvil-restoration
+        audaki-cart-engine
+        better-stats
+        better-than-mending
+        chunky
+        ct-overhaul-village
+        cycle-paintings
+        distanthorizons
+        double-doors
+        dungeons-and-taverns
+        dungeons-and-taverns-stronghold-overhaul
+        explorify
+        geophilic
+        hearths
+        hopo-better-mineshaft
+        hopo-better-ruined-portals
+        hopo-better-underwater-ruins
+        horsebuff
+        inventory-totem
+        leaves-be-gone
+        mastercutter
+        mine-spawners
+        netherportalfix
+        no-feather-trample
+        nullscape
+        rightclickharvest
+        scaffolding-drops-nearby
+        ships
+        sparsestructures
+        stack-refill
+        structory
+        structory-towers
+        tectonic
+        terralith
+        tidal-towns
+        toggle-item-frames
+        towns-and-towers
+        true-ending
+        universal-graves
+        viafabric
+        yungs-better-desert-temples
+        yungs-better-dungeons
+        yungs-better-end-island
+        yungs-better-jungle-temples
+        yungs-better-nether-fortresses
+        yungs-better-ocean-monuments
+        yungs-better-witch-huts
 
 ####################################################################
-#                           DATAPACKS                              #
-#                                                                  #
-# Add URIs to the datapacks you would like to use:                 #
-# - Blaze and Cave's Advancements                                  #
-# - Dungeons and Taverns                                           #
-# - Dungeons and Taverns Stronghold Rework                         #
-# - Explorify                                                      #
-# - Geophilic                                                      #
-# - Hearths                                                        #
-# - Hopo Better Underwater Ruins                                   #
-# - Hopo Better Ruined Portals                                     #
-# - Hopo Better Mineshaft                                          #
-# - [Stubbed] Keep Some Inventory                                  #
-# - MasterCutter                                                   #
-# - Mob Heads                                                      #
-# - Nullscape                                                      #
-# - Ships                                                          #
-# - Spawn Animations                                               #
-# - Structory                                                      #
-# - Structory Towers                                               #
-# - Tidal Towns                                                    #
-# - Waystones V3                                                   #
-#                                                                  #
-# Note: The order below matters:                                   #
+# PLUGINS
 ####################################################################
-         REMOVE_OLD_DATAPACKS: "true"
-         DATAPACKS: |
-            https://cdn.modrinth.com/data/hl5OLM95/versions/g0gG8hfu/Geophilic%20v3.4%20f15-71.dp.zip
-            https://cdn.modrinth.com/data/tpehi7ww/versions/Gu9qNQfD/Dungeons%20and%20Taverns%20v4.6.3.zip
-            https://cdn.modrinth.com/data/rYocd2LE/versions/HJ3nlNAh/DnT%20Stronghold%20Overhaul%20v2.3.zip
-            https://cdn.modrinth.com/data/EEIwvQVo/versions/zZ83E9TB/tidal_1.3.4.zip
-            https://cdn.modrinth.com/data/BuWCQzqf/versions/E9Asuslw/hopobetterunderwaterruins-1-21-4-1-2-2.zip
-            https://cdn.modrinth.com/data/hIpLSyga/versions/RJzZTV8i/hopobetterruinedportals-1-21-4-1-4-5.zip
-            https://cdn.modrinth.com/data/9IxCUYAP/versions/MuQUUVpL/hopobettermineshaft-1-21-4-1-3-0.zip
-            https://cdn.modrinth.com/data/HSfsxuTo/versions/TQiCdZIY/Explorify%20v1.6.2%20f10-48.zip
-            https://cdn.modrinth.com/data/M185nxi6/versions/SnG015x7/Ships%203.0.4.zip
-            https://cdn.modrinth.com/data/aKCwCJlY/versions/Jdpjc1q4/Structory_1.21_v1.3.10.zip
-            https://cdn.modrinth.com/data/j3FONRYr/versions/fQp38MFB/Structory_Towers_1.21_v1.0.11.zip
-            https://cdn.modrinth.com/data/LPjGiSO4/versions/ax0CK7UA/Nullscape_1.21_v1.2.11.zip
-            https://cdn.modrinth.com/data/XCIMrYn0/versions/7p7hR0tj/Hearths%20v1.0.3%20f12-71.zip
-            https://cdn.modrinth.com/data/zrzYrlm0/versions/nnJd2xL0/spawnanimations-v1.10-mc1.17x-1.21x-datapack.zip
-            https://cdn.modrinth.com/data/82uI0waE/versions/xkngvGum/MobHeads-%5B1.21%5D-v.3.2.2.zip
-            https://cdn.modrinth.com/data/DuUMFIfX/versions/P2KAh5dz/MasterCutter%2Bv1.5-mc1.21.4.zip
-            https://cdn.modrinth.com/data/UKUcgltR/versions/7uQ7OHeF/pk_waystones_v.3.4.3_mc_1.21.4.zip
-            https://cdn.modrinth.com/data/VoVJ47kN/versions/i8N5hYLH/BlazeandCave%27s%20Advancements%20Pack%201.18.1.zip
+#
+# LIST [Alphabetical]
+# - floodgate
+# - geyser
+# - ViaVersion
+#
+# DIRECTIONS
+# Add URLs to the plugins you would like to use:
+####################################################################
+      PLUGINS: |
+        https://cdn.modrinth.com/data/wKkoqHrH/versions/6CGF7CTR/geyser-fabric-Geyser-Fabric-2.6.2-b796.jar
+        https://cdn.modrinth.com/data/bWrNNfkb/versions/dNRdr9Ra/Floodgate-Fabric-2.2.4-b44.jar
+        https://cdn.modrinth.com/data/P1OZGk5p/versions/cDofoIGd/ViaVersion-5.5.0-SNAPSHOT.jar
 
 ####################################################################
-#                           RESOURCEPACKS                          #
-#                                                                  #
-# Add URIs to the resourcepack you would like to use               #
+# DATAPACKS
 ####################################################################
-         RESOURCE_PACK: https://cdn.modrinth.com/data/1D9ModDm/versions/YykUHKTE/Waystones_RP_V2.7.zip
-         RESOURCE_PACK_SHA1: dc4b9721546b7aec99e5562b8bb2a0bc5b7053c6
+#
+# LIST [Alphabetical]
+# - Blaze and Cave's Advancements
+# - Spawn Animations
+# - Waystones V3
+#
+# DESCRIPTION
+# Add URIs to the datapacks you would like to use:
+####################################################################
+      REMOVE_OLD_DATAPACKS: "true"
+      DATAPACKS: |
+        https://cdn.modrinth.com/data/UKUcgltR/versions/7uQ7OHeF/pk_waystones_v.3.4.3_mc_1.21.4.zip
+        https://cdn.modrinth.com/data/VoVJ47kN/versions/i8N5hYLH/BlazeandCave%27s%20Advancements%20Pack%201.18.1.zip
+        https://cdn.modrinth.com/data/zrzYrlm0/versions/PogoWIew/spawnanimations-v1.11-mc1.17-1.21.8-datapack.zip
 
 ####################################################################
-#                          Server Memory                           #
-#                                                                  #
-# Set Maximum amount of memory allowed for your server.            #
+# RESOURCEPACKS
 ####################################################################
-         MEMORY: "8G"
+#
+# DIRECTIONS
+# Add URIs to the resourcepack you would like to use
+####################################################################
+      RESOURCE_PACK: https://cdn.modrinth.com/data/1D9ModDm/versions/9O9kUbLk/Waystones_RP_2.10.zip
+      RESOURCE_PACK_SHA1: cb23cd99d864e0ab25ee353b16b28550647f6127
 
 ####################################################################
-#                         Logging Options                          #
-#                                                                  #
-# Set to "true" to delete old logs                                 #
+# Server Memory
 ####################################################################
-         ENABLE_ROLLING_LOGS: "true"
+#
+# DIRECTIONS
+# Set Maximum amount of memory allowed for your server.
+####################################################################
+      MEMORY: "8G"
 
 ####################################################################
-#                          Server Timezone                         #
-#                                                                  #
-# Specify server Timezone                                          #
+# Logging Options
 ####################################################################
-         TZ: ${TZ:-UTC}
+#
+# DIRECTIONS
+# Set to "true" to delete old logs
+####################################################################
+      ENABLE_ROLLING_LOGS: "true"
 
 ####################################################################
-#                       Minecraft Game Options                     #
-#                                                                  #
-# List any game options you want to define here.                   #
+# Server Timezone
 ####################################################################
-         OVERRIDE_SERVER_PROPERTIES: "true"
-         ALLOW_FLIGHT: "true"
-         DIFFICULTY: "normal"
-         ENABLE_WHITELIST: "true"
-         ENFORCE_WHITELIST: "true"
-         ICON: https://cdn.modrinth.com/data/uCdwusMi/e716cda9bb568b5373ff76e363fb4c6d7278fba6_96.webp
-         MAX_PLAYERS: 10
-         MAX_TICK_TIME: "-1"
-         OPS: ${OP_USER}
-         MAX_CHAINED_NEIGHBOR_UPDATES: 10000
-         MOTD: ${MOTD}
-         SEED: ${SEED}
-         VIEW_DISTANCE: 8
-         SIMULATION_DISTANCE: 6
-         SYNC_CHUNK_WRITES: "false"
+#
+# DIRECTIONS
+# Specify server Timezone
+####################################################################
+      TZ: ${TZ:-UTC}
 
 ####################################################################
-#                       Misc Options                               #
+# Game Options
 ####################################################################
-      tty: true
-      stdin_open: true
+#
+# DIRECTIONS
+# List any game options you want to define here.
 ####################################################################
-#                            Volumes                               #
-#                                                                  #
-# Define data volume name here. This will be where the world lives #
-# and what will be backed up.                                      #
+      OVERRIDE_SERVER_PROPERTIES: "true"
+      ALLOW_FLIGHT: "true"
+      DIFFICULTY: "normal"
+      ENABLE_WHITELIST: "true"
+      ENABLE_COMMAND_BLOCK: "true"
+      ENFORCE_WHITELIST: "true"
+      ICON: https://cdn.modrinth.com/data/uCdwusMi/e716cda9bb568b5373ff76e363fb4c6d7278fba6_96.webp
+      MAX_PLAYERS: 10
+      MAX_TICK_TIME: "-1"
+      OPS: ${OP_USER}
+      MAX_CHAINED_NEIGHBOR_UPDATES: 10000
+      MOTD: ${MOTD}
+      SEED: ${SEED}
+      VIEW_DISTANCE: 8
+      SIMULATION_DISTANCE: 6
+      SYNC_CHUNK_WRITES: "false"
+
+####################################################################
+# Misc Options
+####################################################################
+    tty: true
+    stdin_open: true
+####################################################################
+# Volumes
+####################################################################
+#
+# DIRECTIONS
+# Define data volume name here. This will be where the world lives
+# and what will be backed up.
 ####################################################################
 volumes:
-   minecraftdata_mc_distant_horizons_1:
-      external: true
+  minecraftdata_mc_distant_horizons_1:
+    external: true
