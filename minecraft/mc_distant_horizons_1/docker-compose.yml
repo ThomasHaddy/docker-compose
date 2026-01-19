@@ -99,33 +99,20 @@ services:
       VERSION: 1.21.4
 
 ####################################################################
-# MODPACK
-####################################################################
-# DESCRIPTION
-# Add a "slug" to the modpack you would like to use:
-#
-# LIST
-# - Simply Optimized
-####################################################################
-      MOD_PLATFORM: MODRINTH
-      MODRINTH_LOADER: "fabric"
-      MODRINTH_DOWNLOAD_DEPENDENCIES: "required"
-      MODRINTH_MODPACK: sop
-
-####################################################################
 # MODS
 ####################################################################
 #
 # DIRECTIONS
 # Add "slugs" to the mods you would like to use:
 ####################################################################
-      MODRINTH_ALLOWED_VERSION_TYPE: "beta"
+      MODRINTH_ALLOWED_VERSION_TYPE: "alpha"
+      TYPE: FABRIC
+      MODRINTH_DOWNLOAD_DEPENDENCIES: "required"
       MODRINTH_PROJECTS: |
         anvil-restoration
         audaki-cart-engine
         better-stats
         better-than-mending
-        chunky
         ct-overhaul-village
         cycle-paintings
         distanthorizons
@@ -133,6 +120,7 @@ services:
         dungeons-and-taverns
         dungeons-and-taverns-stronghold-overhaul
         explorify
+        fabric-api
         geophilic
         hearths
         hopo-better-mineshaft
@@ -140,7 +128,6 @@ services:
         hopo-better-underwater-ruins
         horsebuff
         inventory-totem
-        leaves-be-gone
         mastercutter
         mine-spawners
         netherportalfix
@@ -160,7 +147,6 @@ services:
         towns-and-towers
         true-ending
         universal-graves
-        viafabric
         yungs-better-desert-temples
         yungs-better-dungeons
         yungs-better-end-island
@@ -170,29 +156,10 @@ services:
         yungs-better-witch-huts
 
 ####################################################################
-# PLUGINS
-####################################################################
-#
-# LIST [Alphabetical]
-# - floodgate
-# - geyser
-# - ViaVersion
-#
-# DIRECTIONS
-# Add URLs to the plugins you would like to use:
-####################################################################
-      PLUGINS: |
-        https://cdn.modrinth.com/data/wKkoqHrH/versions/6CGF7CTR/geyser-fabric-Geyser-Fabric-2.6.2-b796.jar
-        https://cdn.modrinth.com/data/bWrNNfkb/versions/dNRdr9Ra/Floodgate-Fabric-2.2.4-b44.jar
-        https://cdn.modrinth.com/data/P1OZGk5p/versions/cDofoIGd/ViaVersion-5.5.0-SNAPSHOT.jar
-
-####################################################################
 # DATAPACKS
 ####################################################################
 #
 # LIST [Alphabetical]
-# - Blaze and Cave's Advancements
-# - Spawn Animations
 # - Waystones V3
 #
 # DESCRIPTION
@@ -201,8 +168,6 @@ services:
       REMOVE_OLD_DATAPACKS: "true"
       DATAPACKS: |
         https://cdn.modrinth.com/data/UKUcgltR/versions/7uQ7OHeF/pk_waystones_v.3.4.3_mc_1.21.4.zip
-        https://cdn.modrinth.com/data/VoVJ47kN/versions/i8N5hYLH/BlazeandCave%27s%20Advancements%20Pack%201.18.1.zip
-        https://cdn.modrinth.com/data/zrzYrlm0/versions/PogoWIew/spawnanimations-v1.11-mc1.17-1.21.8-datapack.zip
 
 ####################################################################
 # RESOURCEPACKS
